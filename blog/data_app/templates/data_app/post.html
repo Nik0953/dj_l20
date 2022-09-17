@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Подробно
+{% endblock %}
+
+{% block main_content %}
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {% if post %}
+                    <div class="post-preview">
+<!--  расширения новостей пока не предвидится  <a href="post.html">-->
+                        <a>
+                            <h2 class="post-title"> {{ post.name }} </h2>
+                            <h2 class="post-title">  </h2>
+                            <img src="{{post.photo.url}}" height="250">
+                            <h3 class="post-subtitle"> {{ post.full_text }}</h3>
+                            <h3 class="post-subtitle"> {{ post.day }} </h3>
+                        </a>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+
+                    <!-- Post preview-->
+                    {% endif %}
+
+                    <!-- Pager-->
+<!--                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Еще новости →</a></div>-->
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
