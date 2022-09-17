@@ -33,9 +33,10 @@ class Staff(models.Model):
     phone = PhoneNumberField(null=True, blank=True)
     profession = models.ForeignKey(Profession, null=True, on_delete=models.CASCADE)
     actual = models.BooleanField(default=True)
+    portrait = models.ImageField(upload_to='staff', null=True, blank=True)
 
     def __str__(self):
-        s = '' + self.name + '_/_' + self.first_name
+        s = '' + self.first_name + ' ' + self.name
         return s
 
 
@@ -126,3 +127,17 @@ class TimeTable(models.Model):
     room = models.ForeignKey(Room, null=True, on_delete=models.CASCADE)
     status = models.ForeignKey(TimetableStatus, null=True, on_delete=models.CASCADE)
     description = models.TextField(blank=True, null=True)
+
+
+class News(models.Model):
+    """
+    Новости для размещения на главную страницу
+    """
+    name = models.CharField(max_length=126, unique=True)
+    description = models.TextField(blank=True)
+    full_text = models.TextField(blank=True)
+    photo = models.ImageField(upload_to='news', null=True, blank=True)
+    day = models.DateField(blank=False)
+
+    def __str__(self):
+        return self.name

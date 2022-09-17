@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Бронировать
+{% endblock %}
+
+{% block main_content %}
+
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2>Бронирование услуг</h2>
+                        <div class="my-5">
+                            <form method='post' id="bookingForm">
+                                {% csrf_token %}
+                                {{form.as_p}}
+                                <i>обязательно для заполнения  *</i> <br><br>
+                                <button class="btn btn-primary" id="sendMessageButton" type="submit">Отправить запрос</button>
+                                <br>
+                                <p class="post-subtitle">или позвоните нам: +7 495 333 22 11</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+ {% endblock %}
